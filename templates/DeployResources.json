@@ -128,7 +128,7 @@
               "properties": {
                 "addressPrefix": "[parameters('privateEndpointSubnetAddressPrefix')]",
                 "privateLinkServiceNetworkPolicies": "Enabled",
-                "privateEndpointNetworkPolicies": "Disabled"
+                "privateEndpointNetworkPolicies": "Enabled"
               }
             }
           ],
@@ -525,7 +525,7 @@
                             "name": "WEBSITE_VNET_ROUTE_ALL",
                             "value": "1"
                         },
-                        
+
                         {
                             "name": "AzureFunctionsJobHost__extensionBundle__id",
                             "value": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
