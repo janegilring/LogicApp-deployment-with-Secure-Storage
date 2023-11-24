@@ -151,7 +151,7 @@
         "kind": "StorageV2",
         "properties": {
           "networkAcls": {
-            "bypass": "AzureServices",
+            "bypass": "None",
             "defaultAction": "Deny"
           },
           "supportsHttpsTrafficOnly": true,
