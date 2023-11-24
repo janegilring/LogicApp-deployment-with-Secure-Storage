@@ -155,6 +155,7 @@
             "defaultAction": "Deny"
           },
           "supportsHttpsTrafficOnly": true,
+          "publicNetworkAccess": "Disabled",
           "allowBlobPublicAccess": false,
           "encryption": {
             "services": {
