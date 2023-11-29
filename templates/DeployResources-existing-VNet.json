@@ -274,6 +274,7 @@
                         }
                     ],
                     "use32BitWorkerProcess": "[parameters('use32BitWorkerProcess')]",
+                    "publicNetworkAccess": "Disabled",
                     "cors": {
                         "allowedOrigins": [
                             "https://afd.hosting.portal.azure.net",
