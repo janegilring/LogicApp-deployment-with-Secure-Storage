@@ -42,19 +42,12 @@
     "numberOfWorkers": {
       "type": "String"
     },
-    "existingVnetResourceId": {
-      "defaultValue": "/subscriptions/87b8def0-f5cf-402e-a8db-xxxxx/resourceGroups/logic-apps-private-test-rg/providers/Microsoft.Network/virtualNetworks/vnet1",
-      "type": "String",
-      "metadata": {
-        "description": "Resource ID for the VNET that the Function App and Storage account will communicate over."
-      }
-    },
     "LogicAppsubnetResourceId": {
       "type": "String"
     },
     "StoragesubnetResourceId": {
       "type": "String"
-    },
+    }
   },
   "variables": {
     "privateEndpointFileStorageName": "[concat(parameters('contentStorageAccountName'), '-file-private-endpoint')]",
