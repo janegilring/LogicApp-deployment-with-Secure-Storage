@@ -49,12 +49,12 @@
         "description": "Resource ID for the VNET that the Function App and Storage account will communicate over."
       }
     },
-    "subnetName": {
+    "LogicAppsubnetResourceId": {
       "type": "String"
     },
-     "vnetName": {
+    "StoragesubnetResourceId": {
       "type": "String"
-    }
+    },
   },
   "variables": {
     "privateEndpointFileStorageName": "[concat(parameters('contentStorageAccountName'), '-file-private-endpoint')]",
@@ -106,12 +106,11 @@
             "name": "[variables('privateEndpointFileStorageName')]",
             "location": "[parameters('Location')]",
           "dependsOn": [
-            "[resourceId('Microsoft.Storage/storageAccounts/fileServices/shares', parameters('contentStorageAccountName'), 'default',toLower(parameters('fileShareName')))]",
-            "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
+            "[resourceId('Microsoft.Storage/storageAccounts/fileServices/shares', parameters('contentStorageAccountName'), 'default',toLower(parameters('fileShareName')))]"
           ],
             "properties": {
                 "subnet": {
-                    "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('contentStorageAccountName') )]"
+                    "id": "[parameters('StoragesubnetResourceId')]"
                 },
                 "privateLinkServiceConnections": [
                     {
@@ -136,7 +135,7 @@
           ],
             "properties": {
                 "subnet": {
-                    "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('contentStorageAccountName') )]"
+                    "id": "[parameters('StoragesubnetResourceId')]"
                 },
                 "privateLinkServiceConnections": [
                     {
@@ -161,7 +160,7 @@
           ],
             "properties": {
                 "subnet": {
-                    "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('contentStorageAccountName'))]"
+                    "id": "[parameters('StoragesubnetResourceId')]"
                 },
                 "privateLinkServiceConnections": [
                     {
@@ -186,7 +185,7 @@
           ],
             "properties": {
                 "subnet": {
-                    "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('contentStorageAccountName'))]"
+                    "id": "[parameters('StoragesubnetResourceId')]"
                 },
                 "privateLinkServiceConnections": [
                     {
@@ -307,7 +306,7 @@
                         "[parameters('logicAppFEname')]"
                     ],
                   "properties": {
-                    "subnetResourceId": "[resourceId('Microsoft.Network/virtualNetworks/subnets',parameters('vnetName'), parameters('subnetName'))]",
+                    "subnetResourceId": "[parameters('LogicAppsubnetResourceId')]",
                     "swiftSupported": true
                   }
                 }
